@@ -6,7 +6,7 @@
 </head>
 <body>
     <div class="back-button">
-        <a href="../../index.html">Back to portfolio</a>
+        <a href="../../index.php">Back to portfolio</a>
     </div>   
     <form class="login-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <label for="username">Username:</label>
