@@ -80,18 +80,15 @@
                 echo "<project-header><header><strong>" . $row["project"] . "</strong></header></project-header>";
                 echo "<hr class='hr-project'>";
                 echo "<project-desc-section>";
+                echo "<script>console.log('" . $row["desc"] . "')</script>";
                 echo "<p>" . $row["desc"] . "</p>";
                 echo "</project-desc-section>";
+                if($row["github"] != null) {
+                    echo "<a href='" . $row["github"] . "'><i class='fa-brands fa-github fa-2xl' style='color: #6d63f7'></i></a>";
+                }
                 echo "</project>";
             }
             ?>
-        <project>
-            <project-header><header><strong>Project 1</strong></header></project-header>
-            <hr class="hr-project">
-            <project-desc-section>
-                <p>Project 1 description</p>
-            </project-desc-section>
-        </project>
     </projects-section>
 </body>
 </html>

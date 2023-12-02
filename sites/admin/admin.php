@@ -8,6 +8,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     exit;
 }
 
+
 ?>
 
 
@@ -40,10 +41,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <label for="project">Project Description:</label>
             <input type="text" id="project-desc" name="project-desc" required>
             <label for="project">Project Image:</label>
-            <input type="text" id="project-image" name="project-image" required>
-            <label for="project">Project Link:</label>
             <input type="text" id="project-link" name="project-link" required>
-            <button class="btn" type="submit">Add Project</button>
+            <button class="btn" type="submit" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">Add Project</button>
         </form>
         <arrow-down><a href="#skill"><i class="fa-sharp fa-solid fa-arrow-down fa-2xl" style="color: #6d63f7"></i></arrow-down></a>
     </add-project-section>
@@ -63,3 +62,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </html>
 
 <script src="https://kit.fontawesome.com/0f6a8fd9b7.js" crossorigin="anonymous"></script>
+
+<?php
+
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    print_r($_SERVER["REQUEST_METHOD"]);
+      
+}
+
+?>

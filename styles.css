@@ -234,7 +234,9 @@ project-desc-section {
     color: #fff;
     font-size: 1.5rem;
     text-align: center;
-    margin-bottom: 10vh;
+    margin-bottom: 5vh;
+    text-overflow: auto;
+    max-width: 25vw;
 }
 
 .hr-project {
