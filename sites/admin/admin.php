@@ -7,8 +7,23 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: ../login/login.php");
     exit;
 }
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $projectName = $_POST["project-name"];
+    $projectDesc = $_POST["project-desc"];
+    $projectLink = $_POST["project-link"];
 
+    $dbh = new PDO('mysql:host=localhost;dbname=fullstack', 'root', '');
 
+    $sql = "INSERT INTO projects (idprojects, project, `desc`, github) VALUES ('2', '$projectName', '$projectDesc', '$projectLink')";
+
+    $result = $dbh->query($sql);
+
+    if ($result->rowCount() > 0) {
+        echo "<script>alert('Project added')</script>";
+    } else {   
+        echo "<script>alert('Project not added')</script>";
+    }
+}
 ?>
 
 
@@ -35,14 +50,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <add-project-section>
         <header id="project"><strong>Add Project</strong></header>
         <hr>
-        <form class="form">
+        <form class="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <label for="project">Project Name:</label>
             <input type="text" id="project-name" name="project-name" required>
             <label for="project">Project Description:</label>
             <input type="text" id="project-desc" name="project-desc" required>
-            <label for="project">Project Image:</label>
+            <label for="project">Project GitHub Link:</label>
             <input type="text" id="project-link" name="project-link" required>
-            <button class="btn" type="submit" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">Add Project</button>
+            <button class="btn" type="submit">Add Project</button>
         </form>
         <arrow-down><a href="#skill"><i class="fa-sharp fa-solid fa-arrow-down fa-2xl" style="color: #6d63f7"></i></arrow-down></a>
     </add-project-section>
@@ -65,9 +80,5 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 <?php
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    print_r($_SERVER["REQUEST_METHOD"]);
-      
-}
 
 ?>
