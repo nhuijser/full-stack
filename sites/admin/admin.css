@@ -1,0 +1,112 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial;
+    margin: 0;
+    background-color: #0E0F11;
+    text-align: center;
+}
+
+header {
+    margin-top: 17.5vh;
+    font-size: 3.5rem;
+    color: #6d63f7;
+    border: none;
+}
+
+hr {
+    margin-top: 2.5vh;
+    width: 50%;
+    border: 1px solid white;
+
+}
+
+add-project-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2.5vh;
+    height: 100vh;
+}
+
+add-skill-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2.5vh;
+    height: 100vh;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2.5vh;
+}
+
+.form label {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.form input {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #6d63f7;
+    border-radius: 5px;
+    background-color: #0E0F11;
+    color: #fff;
+}
+
+.form button {
+    background-color: #6d63f7;
+    color: rgb(243, 235, 235);
+    border: none;
+    border-radius: 10vh;
+    width: 10rem;
+    justify-content: center;
+    padding: 1rem 2rem;
+    margin-top: 2.5vh;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.form button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 0.5rem #6d63f74f;
+}
+
+.back-button {
+    position: absolute;
+    top: 2.5vh;
+    right: 2.5vw;
+    z-index: 1000;
+}
+
+.back-button a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.5s;
+}
+
+.back-button a:hover {
+    color: #6d63f7;
+}
+
+arrow-down {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10vh;
+    transition: 0.5s;
+}
+
+arrow-up {
+    position: absolute;
+    margin-top: 10vh;
+    transition: 0.5s;
+}
