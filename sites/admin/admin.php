@@ -14,7 +14,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $dbh = new PDO('mysql:host=localhost;dbname=fullstack', 'root', '');
 
-    $sql = "INSERT INTO projects (idprojects, project, `desc`, github) VALUES ('2', '$projectName', '$projectDesc', '$projectLink')";
+    $sqlselect = "SELECT idprojects FROM projects";
+
+    $resultselect = $dbh->query($sqlselect);
+
+    $id = $resultselect->rowCount() + 1;
+
+    $sql = "INSERT INTO projects (idprojects, project, `desc`, github) VALUES ('$id', '$projectName', '$projectDesc', '$projectLink')";
 
     $result = $dbh->query($sql);
 
@@ -36,7 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <div class="back-button">
-        <a href="../../index.html">Back to portfolio</a>
+        <a href="../../index.php">Back to portfolio</a>
     </div>
     <div class="user">
     <i class="fa-regular fa-user fa-2xl" style="color: #ffffff;"></i>

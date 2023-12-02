@@ -67,15 +67,22 @@
             </back-end-desc-section>
         </div>
     </back-end>
-    <arrow-down><a href="#projects"><i class="fa-sharp fa-solid fa-arrow-down fa-2xl" style="color: #ffffff"></i></arrow-down></a>
+    <arrow-down><a href="#projects-1"><i class="fa-sharp fa-solid fa-arrow-down fa-2xl" style="color: #ffffff"></i></arrow-down></a>
     </skills-section>
-    <projects-section id="projects">
-        <arrow-up><a href="#skills"><i class="fa-sharp fa-solid fa-arrow-up fa-2xl" style="color: #6d63f7"></i></arrow-up></a>
-        <?php
-            $dbh = new PDO('mysql:host=localhost;dbname=fullstack', 'root', '');
-            $sql = "SELECT * FROM projects";
-            $result = $dbh->query($sql);
-            foreach ($result as $row) {
+    <?php
+    $dbh = new PDO('mysql:host=localhost;dbname=fullstack', 'root', '');
+    $sql = "SELECT * FROM projects";
+    $result = $dbh->query($sql);
+    $count = 0;
+    foreach ($result as $row) {
+        $count++;
+        if($count == 1) {
+            echo "<arrow-up><a href='#skills'><i class='fa-sharp fa-solid fa-arrow-up fa-2xl' style='color: #6d63f7'></i></arrow-up></a>'";
+        } else {
+            echo "<arrow-up><a href='#projects-" . ($count-1) . "'><i class='fa-sharp fa-solid fa-arrow-up fa-2xl' style='color: #6d63f7'></i></arrow-up></a>'";
+        }
+        
+        echo "<projects-section id='projects-" . $count . "'>";
                 echo "<project>";
                 echo "<project-header><header><strong>" . $row["project"] . "</strong></header></project-header>";
                 echo "<hr class='hr-project'>";
@@ -84,12 +91,15 @@
                 echo "<p>" . $row["desc"] . "</p>";
                 echo "</project-desc-section>";
                 if($row["github"] != null) {
-                    echo "<a href='" . $row["github"] . "'><i class='fa-brands fa-github fa-2xl' style='color: #6d63f7'></i></a>";
+                    echo "<github-button><a href='" . $row["github"] . "'><i class='fa-brands fa-github fa-2xl' style='color: #6d63f7'></i></a></github-button>";
                 }
                 echo "</project>";
+                if($result->rowCount() > 1 && $count < $result->rowCount()) {
+                    echo "<arrow-down><a href='#projects-" . ($count+1) . "'><i class='fa-sharp fa-solid fa-arrow-down fa-2xl' style='color: #fff'></i></arrow-down></a>";
+                }
+                echo "</projects-section>";
             }
-            ?>
-    </projects-section>
+        ?>
 </body>
 </html>
 
