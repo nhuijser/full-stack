@@ -219,6 +219,10 @@ project {
     justify-content: center;
     width: 100%;
     height: 100vh;
+    background-color: #0E0F11;
+    transition: 0.5s;
+}
+
 project-header {
     color: #fff;
     font-size: 5rem;
@@ -238,4 +242,22 @@ project-desc-section {
     border: 0.5px solid #fff;
     margin-bottom: 2.5vh;
     color: #6d63f7
+}
+
+.login-button {
+    position: absolute;
+    top: 2.5vh;
+    right: 2.5vw;
+    z-index: 1000;
+}
+
+.login-button a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.5s;
+}
+
+.login-button a:hover {
+    color: #6d63f7;
 }
