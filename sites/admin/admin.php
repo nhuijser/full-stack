@@ -1,14 +1,36 @@
+<?php 
+
+session_start();
+
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    print_r($_SESSION);
+    header("location: ../login/login.php");
+    exit;
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <link href="admin.css" rel="stylesheet" type="text/css">
     <title>Admin - Nathan Portfolio</title>
 </head>
+
 <body>
     <div class="back-button">
         <a href="../../index.html">Back to portfolio</a>
     </div>
-    
+    <div class="user">
+    <i class="fa-regular fa-user fa-2xl" style="color: #ffffff;"></i>
+    <p>
+            <?php
+                echo $_SESSION["username"];
+            ?>
+        </p>
+    </div>
+
     <add-project-section>
         <header id="project"><strong>Add Project</strong></header>
         <hr>

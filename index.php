@@ -6,7 +6,7 @@
 </head>
 <body>
     <div class="login-button">
-        <a href="sites/login/login.html">Login</a>
+        <a href="sites/login/login.php">Login</a>
     </div>    
     <socials>
         <a href="https://github.com/nhuijser"><i class="fa-brands fa-github fa-2xl" style="color: #6d63f7"></i></a>
@@ -71,6 +71,20 @@
     </skills-section>
     <projects-section id="projects">
         <arrow-up><a href="#skills"><i class="fa-sharp fa-solid fa-arrow-up fa-2xl" style="color: #6d63f7"></i></arrow-up></a>
+        <?php
+            $dbh = new PDO('mysql:host=localhost;dbname=fullstack', 'root', '');
+            $sql = "SELECT * FROM projects";
+            $result = $dbh->query($sql);
+            foreach ($result as $row) {
+                echo "<project>";
+                echo "<project-header><header><strong>" . $row["project"] . "</strong></header></project-header>";
+                echo "<hr class='hr-project'>";
+                echo "<project-desc-section>";
+                echo "<p>" . $row["desc"] . "</p>";
+                echo "</project-desc-section>";
+                echo "</project>";
+            }
+            ?>
         <project>
             <project-header><header><strong>Project 1</strong></header></project-header>
             <hr class="hr-project">
