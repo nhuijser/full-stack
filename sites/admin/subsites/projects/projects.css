@@ -57,6 +57,7 @@ header h2 {
 
 p {
     width: 100%;
+    
 }
 
 .user-info {
@@ -110,6 +111,7 @@ p {
     justify-content: space-between;
     flex-direction: row;;
     transition: 0.5s;
+
 }
 
 .buttons {
@@ -118,5 +120,10 @@ p {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
+    padding-right: 1rem;
 }
 
+@keyframes opacity {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
