@@ -2,7 +2,6 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: #0E0F11;
-    ;
 }
 
 .admin-panel {
@@ -56,6 +55,10 @@ header h2 {
     font-size: 1.5rem;
 }
 
+p {
+    width: 100%;
+}
+
 .user-info {
     display: flex;
     align-items: center;
@@ -75,8 +78,45 @@ header h2 {
 }
 
 .content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
     background: #fff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1vh;
+    width: 100%;
+    transition: 0.5s;
 }
+
+.btn {
+    border: none;
+    border-radius: 1vh;
+    width: 3rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.btn:hover {
+    transition: 0.5s;
+    transform: scale(1.02);
+    box-shadow: 0 0 0 0.2rem #6d63f74f;
+}
+
+.project-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;;
+    transition: 0.5s;
+}
+
+.buttons {
+    position: absolute;
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+

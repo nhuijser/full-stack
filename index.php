@@ -3,6 +3,7 @@
 <head>
     <link href="styles.css" rel="stylesheet" type="text/css">
     <title>Nathan Portfolio</title>
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="login-button">
