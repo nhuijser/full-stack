@@ -41,11 +41,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <div class="back-button">
-        <a href="../../index.php">Back to portfolio</a>
-    </div>
     <div class="user">
-    <i class="fa-regular fa-user fa-2xl" style="color: #ffffff;"></i>
+    <a href="../logout/logout.php"><i class="fa-regular fa-user fa-2xl" style="color: #ffffff;"></i>
     <p>
             <?php
                 echo $_SESSION["username"];

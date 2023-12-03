@@ -3,15 +3,22 @@
 <head>
     <link href="login.css" rel="stylesheet" type="text/css">
     <title>Login - Nathan Portfolio</title>
+    <script src="login.js"></script>
 </head>
 <body>
-    <div class="back-button">
-        <a href="../../index.php">Back to portfolio</a>
-    </div>   
+    <div class="text-box">
+        <h1 id=hey-text>Hey!</h1>
+        <p>You're probably not supposed to be here...</p>
+        <p>Please 
+            <a href="../../index.php" id="click-here-text">
+                click here
+            </a> 
+            to return to my portfolio :D</p>
+    </div>
     <form class="login-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <label for="username">Username:</label>
+        <label for="username">Username</label>
         <input type="text" id="username" name="username" required>
-        <label for="password">Password:</label>
+        <label for="password">Password</label>
         <input type="password" id="password" name="password" required>
         <button class="btn" type="submit">Login</button>
     </form>
