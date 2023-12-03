@@ -71,7 +71,7 @@
     <arrow-down><a href="#projects-1"><i class="fa-sharp fa-solid fa-arrow-down fa-2xl" style="color: #ffffff"></i></arrow-down></a>
     </skills-section>
     <?php
-    $dbh = new PDO('mysql:host=localhost;dbname=fullstack', 'root', '');
+    $dbh = new PDO('mysql:host=localhost;dbname=fullstack', 'root', 'root');
     $sql = "SELECT * FROM projects";
     $result = $dbh->query($sql);
     $count = 0;

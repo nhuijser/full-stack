@@ -36,7 +36,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     exit;
 }
 
-$dbh = new PDO('mysql:host=localhost;dbname=fullstack', 'root', '');
+$dbh = new PDO('mysql:host=localhost;dbname=fullstack', 'root', 'root');
 
 // check if connection was succesful
 

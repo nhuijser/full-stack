@@ -23,7 +23,7 @@
         <h2>Projects</h2>
       </header>
        <?php
-$dbh = new PDO('mysql:host=localhost;dbname=fullstack', 'root', '');
+$dbh = new PDO('mysql:host=localhost;dbname=fullstack', 'root', 'root');
 $sql = "SELECT * FROM projects";
 $result = $dbh->query($sql);
 

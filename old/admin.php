@@ -12,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $projectDesc = $_POST["project-desc"];
     $projectLink = $_POST["project-link"];
 
-    $dbh = new PDO('mysql:host=localhost;dbname=fullstack', 'root', '');
+    $dbh = new PDO('mysql:host=localhost;dbname=fullstack', 'root', 'root');
 
     $sqlselect = "SELECT idprojects FROM projects";
 
