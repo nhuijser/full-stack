@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial;
+    background-color: #0E0F11;
+    /* overflow-y: hidden;
+    overflow-x: hidden; */
+
+}
+
+.user-box {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    left: 0;
+    color: #6d63f7;
+    margin-top: 1vh;
+    margin-left: 1vh;
+    padding: 7.5px;
+    border: 1px solid #6d63f7;
+    border-radius: 5px;
+    background-color: #6d63f7;
+    width: 200px;
+}
+
+.user-box i {
+    margin-left: 2vh;
+}
+
+.user-box p {
+    font-size: 1em;
+    line-height: 1.5;
+    color: #333;
+}
+
+.user-box button {
+    background-color: #bab5ff;
+    color: rgb(243, 235, 235);
+    border: none;
+    border-radius: 10vh;
+    width: 7.5rem;
+    justify-content: left;
+    padding: 1rem 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.user-box button:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 0 0.5rem #bab5ff4f;
+}
+
+.projects-box {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    left: 0;
+    color: #6d63f7;
+    margin-top: 10vh;
+    margin-left: 1vh;
+    padding: 7.5px;
+    border: 1px solid #6d63f7;
+    border-radius: 5px;
+    background-color: #6d63f7;
+    width: 200px;
+}
+
+.projects-box i {
+    margin-left: 2vh;
+}
+
+.projects-box p {
+    font-size: 1em;
+    line-height: 1.5;
+    color: #333;
+}
+
+.projects-box button {
+    background-color: #bab5ff;
+    color: rgb(243, 235, 235);
+    border: none;
+    border-radius: 10vh;
+    width: 7.5rem;
+    justify-content: left;
+    padding: 1rem 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.skills-box {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    left: 0;
+    color: #6d63f7;
+    margin-top: 19vh;
+    margin-left: 1vh;
+    padding: 7.5px;
+    border: 1px solid #6d63f7;
+    border-radius: 5px;
+    background-color: #6d63f7;
+    width: 200px;
+}
+
+.skills-box i {
+    margin-left: 2vh;
+}
+
+.skills-box p {
+    font-size: 1em;
+    line-height: 1.5;
+    color: #333;
+}
+
+.skills-box button {
+    background-color: #bab5ff;
+    color: rgb(243, 235, 235);
+    border: none;
+    border-radius: 10vh;
+    width: 7.5rem;
+    justify-content: left;
+    padding: 1rem 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.welcome {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    color: #6d63f7;
+    padding: 2.5vh;
+    border: 1vh solid #6d63f7;
+    border-radius: 2.5vh;
+    background-color: #6d63f7;
+    width: 100vh;
+}
+
+.welcome h1 {
+    color: white;
+    font-size: 3rem;
+    transition: 0.5s;
+}
+
+.welcome p {
+    margin-top: 2.5vh;
+    font-size: 1em;
+    line-height: 1.5;
+    color: white;
+}
+
+.project-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-header {
+    padding-top: 10vh;
+    color: #fff;
+    font-size: 5rem;
+    text-align: center;
+}
+
+welcome-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.project-box {
+    margin-top: 2.5vh;
+    padding-left: 2.5vh;
+    padding-right: 2.5vh;
+    border-radius: 2.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    background-color: #2d2f33;
+    transition: 0.5s;
+}
+
+.project-box:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 0 0.5rem #6d63f74f;
+    transition: 0.5s;
+}
+
+.project-box h2 {
+    color: #fff;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.project-box p {
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 2.5vh;
+}
+
+.project-box button {
+    background-color: #bab5ff;
+    color: rgb(243, 235, 235);
+    border: none;
+    border-radius: 10vh;
+    width: 10rem;
+    justify-content: center;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.5s;
+}
