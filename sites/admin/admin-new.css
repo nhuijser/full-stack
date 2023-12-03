@@ -191,9 +191,9 @@ welcome-page {
 
 .project-box {
     margin-top: 2.5vh;
-    padding-left: 2.5vh;
-    padding-right: 2.5vh;
     border-radius: 2.5vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
     display: flex;
     flex-direction: column;
     align-items: center;
