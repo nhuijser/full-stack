@@ -71,6 +71,23 @@ while ($row = $result->fetch()) {
     </main>
   </div>
   <script>
+
+    // existing code...
+
+// get all section elements
+const sections = document.querySelectorAll('section');
+
+sections.forEach((section) => {
+  section.addEventListener('click', (event) => {
+    console.log(event.target.tagName)
+    if (event.target.tagName === 'BUTTON' || event.target.tagName === 'I' || event.target.tagName === 'INPUT' || event.target.tagName === "P") {
+      return;
+    }
+    const details = section.querySelector('details');
+    details.open = !details.open;
+  });
+});
+
 const createButton = document.getElementById('createButton');
 
 if(createButton) {
@@ -84,8 +101,8 @@ if(createButton) {
     })
     .then(response => response.text())
     .then(data => {
+      location.reload()
       console.log(data);
-      location.reload();
     })
     .catch((error) => {
       console.error('Error:', error);
@@ -140,66 +157,61 @@ showButtons.forEach((showButton) => {
     });
   })
 });
-
-
+  
 const editButtons = document.querySelectorAll('.editButton'); 
-  editButtons.forEach((editButton) => {
+editButtons.forEach((editButton) => {
   editButton.addEventListener('click', () => {
-  console.log("Edit button clicked");
-  const project = document.querySelector('.project-' + editButton.dataset.id);
-  project.contentEditable = true;
-  project.focus();
+    console.log("Edit button clicked");
 
-    // if edit ubtton is clicked fold open the summary section
+    const projectTitle = document.querySelector('.project-' + editButton.dataset.id).parentNode.querySelector('summary strong');
+    projectTitle.contentEditable = true;
+    projectTitle.focus();
 
-    const summary = document.querySelector('.project-' + editButton.dataset.id).parentNode;
+    const projectDescription = document.querySelector('.project-' + editButton.dataset.id);
+    projectDescription.contentEditable = true;
+    projectDescription.focus();
+
+    const summary = projectDescription.parentNode
     summary.open = true;
 
-  // create a submit button
-  const submitButton = document.createElement('button');
-  submitButton.classList.add('btn');
-  submitButton.innerHTML = '<i class="fas fa-check fa-normal" style="color: #00ff00;"></i>';
+    const submitButton = document.createElement('button');
+    submitButton.classList.add('btn');
+    submitButton.innerHTML = '<i class="fas fa-check fa-normal" style="color: #00ff00;"></i>';
 
-// create a cancel button
-const cancelButton = document.createElement('button');
-cancelButton.classList.add('btn');
-cancelButton.innerHTML = '<i class="fas fa-times fa-normal" style="color: #ff1900;"></i>';
+    const cancelButton = document.createElement('button');
+    cancelButton.classList.add('btn');
+    cancelButton.innerHTML = '<i class="fas fa-times fa-normal" style="color: #ff1900;"></i>';
 
-// append the buttons to the parent of the project element
-project.parentNode.appendChild(submitButton);
-project.parentNode.appendChild(cancelButton);
+    projectDescription.parentNode.appendChild(submitButton);
+    projectDescription.parentNode.appendChild(cancelButton);
 
-// add event listener to the submit button
-submitButton.addEventListener('click', () => {
-  console.log("Submit button clicked");
-  fetch('changes/edit_project.php', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: 'id=' + editButton.dataset.id + '&description=' + project.innerHTML,
-  })
-  .then(response => response.text())
-  .then(data => {
-    console.log(data);
-    location.reload();
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-  });
-})
+    submitButton.addEventListener('click', () => {
+      console.log("Submit button clicked");
+      fetch('changes/edit_project.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'id=' + editButton.dataset.id + '&project=' + projectTitle.innerHTML + '&description=' + projectDescription.innerHTML,
+      })
+      .then(response => response.text())
+      .then(data => {
+        console.log(data);
+        location.reload();
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    });
 
-// add event listener to the cancel button
-cancelButton.addEventListener('click', () => {
-  console.log("Cancel button clicked");
-  project.contentEditable = false;
-  project.parentNode.removeChild(submitButton);
-  project.parentNode.removeChild(cancelButton);
-})
-
-
-  
-  
+    // add event listener to the cancel button
+    cancelButton.addEventListener('click', () => {
+      console.log("Cancel button clicked");
+      projectTitle.contentEditable = false;
+      projectDescription.contentEditable = false;
+      projectDescription.parentNode.removeChild(submitButton);
+      projectDescription.parentNode.removeChild(cancelButton);
+    });
   });
 });
 
