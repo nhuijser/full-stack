@@ -78,14 +78,17 @@
     $count = 0;
     foreach ($result as $row) {
 
-        if($count >= 1) {
-            echo "<arrow-up><a href='#skills'><i class='fa-sharp fa-solid fa-arrow-up fa-2xl' style='color: #6d63f7'></i></arrow-up></a>'";
+        // create navigating arrows
+
+        if($count > 0) {
+            echo "<arrow-up><a href='#projects-" . ($count) . "'><i class='fa-sharp fa-solid fa-arrow-up fa-2xl' style='color: #fff'></i></arrow-up></a>";
         } else {
-            echo "<arrow-up><a href='#projects-" . ($count-1) . "'><i class='fa-sharp fa-solid fa-arrow-up fa-2xl' style='color: #6d63f7'></i></arrow-up></a>'";
+            echo "<arrow-up><a href='#skills'><i class='fa-sharp fa-solid fa-arrow-up fa-2xl' style='color: #fff'></i></arrow-up></a>";
         }
 
-        $count++;
         
+        
+        $count++;
         echo "<projects-section id='projects-" . $count . "'>";
                 echo "<project>";
                 echo "<project-header><header><strong>" . $row["project"] . "</strong></header></project-header>";
