@@ -42,7 +42,7 @@ while ($row = $result->fetch()) {
   echo "</div>";
   echo "</details>";
   echo '<div class="buttons">';
-  echo '<button class="btn" id="showButton"><i class="fa-regular fa-eye fa-normal" style="color: #005eff;"></i></button>';
+  echo '<button class="btn" id="showButton" data-id="' . $row['idprojects'] . '"><i class="fa-regular fa-eye fa-normal" style="color: #005eff;"></i></button>';
   echo '</div>';
   echo "</div>";
   echo "</section>";
@@ -58,8 +58,8 @@ while ($row = $result->fetch()) {
   echo "</div>";
   echo "</details>";
   echo '<div class="buttons">';
-  echo '<button class="btn" id="deleteButton"><i class="fas fa-trash-alt fa-normal" style="color: #ff1900;"></i></button>';
-  echo '<button class="btn"><i class="fas fa-edit fa-normal" style="color: cyan;"></i></button>';
+  echo '<button class="btn" id="deleteButton" data-id="' . $row['idprojects'] . '"><i class="fas fa-trash-alt fa-normal" style="color: #ff1900;"></i></button>';
+  echo '<button class="btn" id="editButton" data-id="' . $row['idprojects'] . '"><i class="fas fa-edit fa-normal" style="color: cyan;"></i></button>';
   echo '</div>';
   echo "</div>";
   echo "</section>";
@@ -72,6 +72,7 @@ while ($row = $result->fetch()) {
 const deleteButton = document.getElementById('deleteButton');
 
 if(deleteButton) {
+  const projectId = deleteButton.dataset.id;
   deleteButton.addEventListener('click', () => {
     console.log("Delete button clicked");
     fetch('changes/delete_project.php', {
@@ -79,7 +80,7 @@ if(deleteButton) {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: 'id=1',
+      body: 'id=' + projectId,
     })
     .then(response => response.text())
     .then(data => {
@@ -96,6 +97,7 @@ if(deleteButton) {
 const showButton = document.getElementById('showButton');
 
 if(showButton) {
+  const projectId = showButton.dataset.id;
   showButton.addEventListener('click', () => {
     console.log("Show button clicked");
     fetch('changes/show_project.php', {
@@ -103,7 +105,7 @@ if(showButton) {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: 'id=1',
+      body: 'id=' + projectId,
     })
     .then(response => response.text())
     .then(data => {
