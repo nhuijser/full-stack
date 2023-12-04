@@ -90,7 +90,7 @@ p {
     transition: 0.5s;
 }
 
-.btn {
+.deleteButton {
     border: none;
     border-radius: 1vh;
     width: 3rem;
@@ -99,7 +99,52 @@ p {
     transition: 0.5s;
 }
 
-.btn:hover {
+.deleteButton:hover {
+    transition: 0.5s;
+    transform: scale(1.02);
+    box-shadow: 0 0 0 0.2rem #6d63f74f;
+}
+
+.editButton {
+    border: none;
+    border-radius: 1vh;
+    width: 3rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.editButton:hover {
+    transition: 0.5s;
+    transform: scale(1.02);
+    box-shadow: 0 0 0 0.2rem #6d63f74f;
+}
+
+.createButton {
+    border: none;
+    border-radius: 1vh;
+    width: 3rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.createButton:hover {
+    transition: 0.5s;
+    transform: scale(1.02);
+    box-shadow: 0 0 0 0.2rem #6d63f74f;
+}
+
+.showButton {
+    border: none;
+    border-radius: 1vh;
+    width: 3rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.showButton:hover {
     transition: 0.5s;
     transform: scale(1.02);
     box-shadow: 0 0 0 0.2rem #6d63f74f;

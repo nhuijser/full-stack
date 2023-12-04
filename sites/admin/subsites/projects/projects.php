@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="admin-panel">
-  <aside class="sidebar">
+    <aside class="sidebar">
       <h1>Admin Dashboard</h1>
       <ul>
         <li><a href="#">Dashboard</a></li>
@@ -21,160 +21,189 @@
     <main class="main-content">
       <header>
         <h2>Projects</h2>
+        <!-- add button to create project -->
+        <button class="createButton" id="createButton"><i class="fas fa-plus fa-normal" style="color: #00ff00;"></i></button>
       </header>
-       <?php
-$dbh = new PDO('mysql:host=localhost;dbname=fullstack', 'root', 'root');
-$sql = "SELECT * FROM projects";
-$result = $dbh->query($sql);
+      <?php
+      $dbh = new PDO('mysql:host=localhost;dbname=fullstack', 'root', 'root');
+      $sql = "SELECT * FROM projects";
+      $result = $dbh->query($sql);
 
-
-while ($row = $result->fetch()) {
-  echo "<script>console.log('" . $row['deleted'] . "')</script>";
-  if($row['deleted'] == 1) {
-  echo "<section class='content-deleted'>";
-  echo "<div class='project-container-deleted'>";
-  echo "<details>";
-  echo "<summary>";
-  echo  "<strong>" . $row['project'] . "</strong>";
-  echo "</summary>";
-  echo "<div class='project-deleted'>";
-  echo "<p>" . $row['description'] . "</p>";
-  echo "</div>";
-  echo "</details>";
-  echo '<div class="buttons">';
-  echo '<button class="btn" id="showButton" data-id="' . $row['idprojects'] . '"><i class="fa-regular fa-eye fa-normal" style="color: #005eff;"></i></button>';
-  echo '</div>';
-  echo "</div>";
-  echo "</section>";
-  } else if($row['deleted'] == 0) {
-  echo "<section class='content'>";
-  echo "<div class='project-container'>";
-  echo "<details>";
-  echo "<summary>";
-  echo  "<strong>" . $row['project'] . "</strong>";
-  echo "</summary>";
-  echo "<div class='project-" . $row['idprojects'] . "'>";
-  echo "<p>" . $row['description'] . "</p>";
-  echo "</div>";
-  echo "</details>";
-  echo '<div class="buttons">';
-  echo '<button class="btn" id="deleteButton" data-id="' . $row['idprojects'] . '"><i class="fas fa-trash-alt fa-normal" style="color: #ff1900;"></i></button>';
-  echo '<button class="btn" id="editButton" data-id="' . $row['idprojects'] . '"><i class="fas fa-edit fa-normal" style="color: cyan;"></i></button>';
-  echo '</div>';
-  echo "</div>";
-  echo "</section>";
-  }
-}
-         ?>
+      while ($row = $result->fetch()) {
+        echo "<script>console.log('" . $row['deleted'] . "')</script>";
+        if ($row['deleted'] == 1) {
+          echo "<section class='content-deleted'>";
+          echo "<div class='project-container-deleted'>";
+          echo "<details>";
+          echo "<summary>";
+          echo  "<strong>" . $row['project'] . "</strong>";
+          echo "</summary>";
+          echo "<div class='project-deleted'>";
+          echo "<p>" . $row['description'] . "</p>";
+          echo "</div>";
+          echo "</details>";
+          echo '<div class="buttons">';
+          echo '<button class="showButton" id="showButton" data-id="' . $row['idprojects'] . '"><i class="fa-regular fa-eye fa-normal" style="color: #005eff;"></i></button>';
+          echo '</div>';
+          echo "</div>";
+          echo "</section>";
+        } else if ($row['deleted'] == 0) {
+          echo "<section class='content'>";
+          echo "<div class='project-container'>";
+          echo "<details>";
+          echo "<summary>";
+          echo  "<strong>" . $row['project'] . "</strong>";
+          echo "</summary>";
+          echo "<div class='project-" . $row['idprojects'] . "'>";
+          echo "<p>" . $row['description'] . "</p>";
+          echo "</div>";
+          echo "</details>";
+          echo '<div class="buttons">';
+          echo '<button class="deleteButton" id="deleteButton" data-id="' . $row['idprojects'] . '"><i class="fas fa-trash-alt fa-normal" style="color: #ff1900;"></i></button>';
+          echo '<button class="editButton" id="editButton" data-desc="' . $row['description'] . '" data-id="' . $row['idprojects'] . '"><i class="fas fa-edit fa-normal" style="color: cyan;"></i></button>';
+          echo '</div>';
+          echo "</div>";
+          echo "</section>";
+        }
+      }
+      ?>
     </main>
   </div>
   <script>
-const deleteButton = document.getElementById('deleteButton');
+    const createButton = document.getElementById('createButton');
 
-if(deleteButton) {
-  const projectId = deleteButton.dataset.id;
-  deleteButton.addEventListener('click', () => {
-    console.log("Delete button clicked");
-    fetch('changes/delete_project.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: 'id=' + projectId,
-    })
-    .then(response => response.text())
-    .then(data => {
-      console.log(data);
-      location.reload();
-    
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
-  })
-}
-
-const showButton = document.getElementById('showButton');
-
-if(showButton) {
-  const projectId = showButton.dataset.id;
-  showButton.addEventListener('click', () => {
-    console.log("Show button clicked");
-    fetch('changes/show_project.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: 'id=' + projectId,
-    })
-    .then(response => response.text())
-    .then(data => {
-      console.log(data);
-      location.reload();
-    }
-    )
-    .catch((error) => {
-      console.error('Error:', error);
-    });
-  })
-}
-
-
-const editButton = document.getElementById('editButton'); 
-
-if(editButton) {
-  editButton.addEventListener('click', () => {
-    console.log("Edit button clicked");
-    
-    const projectId = editButton.dataset.id;
-    const project = document.querySelector('.project-' + projectId) 
-
-    project.contentEditable = true;
-    
-    
-    // add submit button
-
-    const submitButton = document.createElement('button');
-    submitButton.classList.add('btn');
-    submitButton.innerHTML = '<i class="fas fa-check fa-normal" style="color: #00ff00;"></i>';
-
-    // append the submit button to the parent of the project element
-    project.parentNode.appendChild(submitButton);
-
-    submitButton.addEventListener('click', () => {
-      console.log("Submit button clicked");
-      const desc = project.innerHTML;
-      console.log(desc);
-      fetch('changes/edit_project.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: 'id=' + projectId + '&description=' + desc,
+    if (createButton) {
+      createButton.addEventListener('click', () => {
+        console.log("Create button clicked");
+        fetch('changes/create_project.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+        })
+          .then(response => response.text())
+          .then(data => {
+            console.log(data);
+            location.reload();
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
       })
-      submitButton.remove();
-      cancelButton.remove();
+    }
+
+    const deleteButtons = document.querySelectorAll('.deleteButton');
+
+    deleteButtons.forEach((deleteButton) => {
+      const projectId = deleteButton.dataset.id;
+      deleteButton.addEventListener('click', () => {
+        console.log("Delete button clicked");
+        fetch('changes/delete_project.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: 'id=' + projectId,
+        })
+          .then(response => response.text())
+          .then(data => {
+            console.log(data);
+            location.reload();
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+      })
+    });
+
+    const showButtons = document.querySelectorAll('.showButton');
+
+    showButtons.forEach((showButton) => {
+      const projectId = showButton.dataset.id;
+      showButton.addEventListener('click', () => {
+        console.log("Show button clicked");
+        fetch('changes/show_project.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: 'id=' + projectId,
+        })
+          .then(response => response.text())
+          .then(data => {
+            console.log(data);
+            location.reload();
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+      })
+    });
+
+    const editButtons = document.querySelectorAll('.editButton');
+
+    editButtons.forEach((editButton) => {
+      editButton.addEventListener('click', () => {
+        console.log("Edit button clicked");
+        const project = document.querySelector('.project-' + editButton.dataset.id);
+        project.contentEditable = true;
+        project.focus();
+
+        // create a submit button
+        const submitButton = document.createElement('button');
+        submitButton.classList.add('btn');
+        submitButton.innerHTML = '<i class="fas fa-check fa-normal" style="color: #00ff00;"></i>';
+
+        // append the submit button to the parent of the project element
+        project.parentNode.appendChild(submitButton);
+
+        submitButton.addEventListener('click', () => {
+          console.log("Submit button clicked");
+          project.contentEditable = false;
+          submitButton.remove();
+          cancelButton.remove();
+
+          const projectId = editButton.dataset.id;
+          const projectDescription = project.innerHTML;
+
+          fetch('changes/edit_project.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'id=' + projectId + '&description=' + projectDescription,
+          })
+            .then(response => response.text())
+            .then(data => {
+              console.log(data);
+              location.reload();
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+            });
+        })
+      })
+
+      const cancelButton = document.createElement('button');
+      cancelButton.classList.add('btn');
+      cancelButton.innerHTML = '<i class="fas fa-times fa-normal" style="color: #ff0000;"></i>';
+
+      // append the cancel button to the parent of the project element
+      project.parentNode.appendChild(cancelButton);
+
+      cancelButton.addEventListener('click', () => {
+        console.log("Cancel button clicked");
+        project.contentEditable = false;
+        submitButton.remove();
+        cancelButton.remove();
+
+        const projectId = editButton.dataset.desc;
+
+        project.innerHTML = projectId;
+      })
+
     })
-
- // add cancel button
-
-  const cancelButton = document.createElement('button');
-  cancelButton.classList.add('btn');
-  cancelButton.innerHTML = '<i class="fas fa-times fa-normal" style="color: #ff0000;"></i>';
-
-  // append the cancel button to the parent of the project element
-  project.parentNode.appendChild(cancelButton);
-
-  cancelButton.addEventListener('click', () => {
-    console.log("Cancel button clicked");
-    project.contentEditable = false;
-    submitButton.remove();
-    cancelButton.remove();
-  })
-  })
-}
-
-</script>
+  </script>
 </body>
 </html>
 
