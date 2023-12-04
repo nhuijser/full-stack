@@ -38,7 +38,7 @@ while ($row = $result->fetch()) {
   echo  "<strong>" . $row['project'] . "</strong>";
   echo "</summary>";
   echo "<div class='project-deleted'>";
-  echo "<p>" . $row['desc'] . "</p>";
+  echo "<p>" . $row['description'] . "</p>";
   echo "</div>";
   echo "</details>";
   echo '<div class="buttons">';
@@ -53,8 +53,8 @@ while ($row = $result->fetch()) {
   echo "<summary>";
   echo  "<strong>" . $row['project'] . "</strong>";
   echo "</summary>";
-  echo "<div class='project'>";
-  echo "<p>" . $row['desc'] . "</p>";
+  echo "<div class='project-" . $row['idprojects'] . "'>";
+  echo "<p>" . $row['description'] . "</p>";
   echo "</div>";
   echo "</details>";
   echo '<div class="buttons">';
@@ -126,6 +126,51 @@ if(editButton) {
   editButton.addEventListener('click', () => {
     console.log("Edit button clicked");
     
+    const projectId = editButton.dataset.id;
+    const project = document.querySelector('.project-' + projectId) 
+
+    project.contentEditable = true;
+    
+    
+    // add submit button
+
+    const submitButton = document.createElement('button');
+    submitButton.classList.add('btn');
+    submitButton.innerHTML = '<i class="fas fa-check fa-normal" style="color: #00ff00;"></i>';
+
+    // append the submit button to the parent of the project element
+    project.parentNode.appendChild(submitButton);
+
+    submitButton.addEventListener('click', () => {
+      console.log("Submit button clicked");
+      const desc = project.innerHTML;
+      console.log(desc);
+      fetch('changes/edit_project.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'id=' + projectId + '&description=' + desc,
+      })
+      submitButton.remove();
+      cancelButton.remove();
+    })
+
+ // add cancel button
+
+  const cancelButton = document.createElement('button');
+  cancelButton.classList.add('btn');
+  cancelButton.innerHTML = '<i class="fas fa-times fa-normal" style="color: #ff0000;"></i>';
+
+  // append the cancel button to the parent of the project element
+  project.parentNode.appendChild(cancelButton);
+
+  cancelButton.addEventListener('click', () => {
+    console.log("Cancel button clicked");
+    project.contentEditable = false;
+    submitButton.remove();
+    cancelButton.remove();
+  })
   })
 }
 

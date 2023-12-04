@@ -77,7 +77,7 @@
     $result = $dbh->query($sql);
     $count = 0;
     foreach ($result as $row) {
-        if($row["deleted"] == 1) {
+        if($row["deleted"] == 1) {  
             return;
         }
 
@@ -93,8 +93,8 @@
                 echo "<project-header><header><strong>" . $row["project"] . "</strong></header></project-header>";
                 echo "<hr class='hr-project'>";
                 echo "<project-desc-section>";
-                echo "<script>console.log('" . $row["desc"] . "')</script>";
-                echo "<p>" . $row["desc"] . "</p>";
+                echo "<script>console.log('" . $row["description"] . "')</script>";
+                echo "<p>" . $row["description"] . "</p>";
                 echo "</project-desc-section>";
                 if($row["github"] != null) {
                     echo "<github-button><a href='" . $row["github"] . "'><i class='fa-brands fa-github fa-2xl' style='color: #6d63f7'></i></a></github-button>";
