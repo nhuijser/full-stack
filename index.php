@@ -23,7 +23,7 @@
     <a href="#skills"><button class="btn">Tell me more!</button></a>
     </header-section>
     <header-img>
-        <img src="https://placehold.co/600x400/000000/FFFFFF.png" alt="Nathan">
+        <img src="./img/foto.JPG" alt="Nathan">
     </header-img>
     <skills-section id="skills">
     <arrow-up><a href="#"><i class="fa-sharp fa-solid fa-arrow-up fa-2xl" style="color: #6d63f7"></i></arrow-up></a>
@@ -86,7 +86,7 @@
             echo "<arrow-up><a href='#skills'><i class='fa-sharp fa-solid fa-arrow-up fa-2xl' style='color: #fff'></i></arrow-up></a>";
         }
 
-        
+
         
         $count++;
         echo "<projects-section id='projects-" . $count . "'>";

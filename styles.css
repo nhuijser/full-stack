@@ -93,7 +93,8 @@ header-img {
     position: absolute;
     right: 0;
     top: 30vh;
-    margin: 0 15rem;
+    margin-right: 20vw;
+    scale: 1.2;
     transition: 0.5s;
 }
 
@@ -294,4 +295,8 @@ github-button {
 github-button:hover {
     transform: scale(1.2);
     transition: 0.5s;
+}
+
+img {
+    height: 400px;
 }

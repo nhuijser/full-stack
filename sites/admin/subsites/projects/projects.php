@@ -22,7 +22,7 @@
         <header>
           <h2>Projects</h2>
           <!-- add button to create project -->
-          <button class="createButton" id="createButton"><i class="fas fa-plus fa-normal" style="color: #00ff00;"></i></button>
+          <button class="createButton" id="createButton"><i class="fas fa-plus fa-normal" style="color: #6d63f7;"></i></button>
         </header>
         <?php
   $dbh = new PDO('mysql:host=localhost;dbname=fullstack', 'root', 'root');
@@ -44,7 +44,7 @@
     echo "</div>";
     echo "</details>";
     echo '<div class="buttons">';
-    echo '<button class="showButton" id="showButton" data-id="' . $row['idprojects'] . '"><i class="fa-regular fa-eye fa-normal" style="color: #005eff;"></i></button>';
+    echo '<button class="showButton" id="showButton" data-id="' . $row['idprojects'] . '"><i class="fa-regular fa-eye fa-normal" style="color: #6d63f7;"></i></button>';
     echo '</div>';
     echo "</div>";
     echo "</section>";
@@ -60,8 +60,8 @@
     echo "</div>";
     echo "</details>";
     echo '<div class="buttons">';
-    echo '<button class="deleteButton" id="deleteButton" data-id="' . $row['idprojects'] . '"><i class="fas fa-trash-alt fa-normal" style="color: #ff1900;"></i></button>';
-    echo '<button class="editButton" id="editButton" data-desc="' . $row['description'] . '" data-id="' . $row['idprojects'] . '"><i class="fas fa-edit fa-normal" style="color: cyan;"></i></button>';
+    echo '<button class="deleteButton" id="deleteButton" data-id="' . $row['idprojects'] . '"><i class="fas fa-eye-slash fa-normal" style="color: #6d63f7;"></i></button>';
+    echo '<button class="editButton" id="editButton" data-desc="' . $row['description'] . '" data-id="' . $row['idprojects'] . '"><i class="fas fa-edit fa-normal" style="color: #6d63f7;"></i></button>';
     echo '</div>';
     echo "</div>";
     echo "</section>";
