@@ -17,7 +17,7 @@
         <li><a href="./subsites/projects/projects.php">Projects</a></li>
         <li><a href="#">Products</a></li>
         <li><a href="#">Settings</a></li>
-        <li><a href=".././logout/logout.php">Logout</a></li>
+        <li><a href="../logout/logout.php">Logout</a></li>
       </ul>
     </aside>
     <main class="main-content">
@@ -27,8 +27,19 @@
       </section>
     </main>
   </div>
-  <script type="text/javascript">
+  <script type="text/javascript" async>
   const ctx = document.getElementById('myChart');
+
+  const getData = async () => {
+    const response = await fetch('./subsites/projects/endpoints/get_chartdata.php');
+    const data = await response.json();
+    return data;
+  }
+
+   getData().then(chartData => {
+
+    const active = chartData.activeProjects;
+    const inactive = chartData.deletedProjects;
 
   const data = {
   labels: [
@@ -37,10 +48,10 @@
   ],
   datasets: [{
     label: 'Projects',
-    data: [2, 3],
+    data: [inactive, active],
     backgroundColor: [
-      'rgb(255, 99, 132)',
       'rgb(54, 162, 235)',
+      'rgb(255, 99, 132)',
     ],
     hoverOffset: 4
   }]
@@ -49,12 +60,32 @@
 const config = {
   type: 'doughnut',
   data: data,
+  options: {
+    plugins: {
+      legend: {
+        display: true,
+        position: 'bottom',
+        labels: {
+        color: 'white',
+        padding: 20,
+        font: {
+          size: 18
+        }
+      }
+    }
+    }
+  },
 };
 
 var myDoughnut = new Chart(ctx, config);
 
+
+  })
+
+
 </script>
 </body>
 </html>
+
 
 
