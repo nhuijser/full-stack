@@ -73,20 +73,18 @@
     </skills-section>
     <?php
     $dbh = new PDO('mysql:host=localhost;dbname=fullstack', 'root', 'root');
-    $sql = "SELECT * FROM projects";
+    $sql = "SELECT * FROM projects WHERE deleted = 0";
     $result = $dbh->query($sql);
     $count = 0;
     foreach ($result as $row) {
-        if($row["deleted"] == 1) {  
-            return;
-        }
 
-        $count++;
-        if($count == 1) {
+        if($count >= 1) {
             echo "<arrow-up><a href='#skills'><i class='fa-sharp fa-solid fa-arrow-up fa-2xl' style='color: #6d63f7'></i></arrow-up></a>'";
         } else {
             echo "<arrow-up><a href='#projects-" . ($count-1) . "'><i class='fa-sharp fa-solid fa-arrow-up fa-2xl' style='color: #6d63f7'></i></arrow-up></a>'";
         }
+
+        $count++;
         
         echo "<projects-section id='projects-" . $count . "'>";
                 echo "<project>";
