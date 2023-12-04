@@ -20,11 +20,8 @@
       </ul>
     </aside>
     <main class="main-content">
-      <header>
-        <h2>Dashboard</h2>
-      </header>
       <section class="content">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+        <header>Projects</header>
       </section>
     </main>
   </div>

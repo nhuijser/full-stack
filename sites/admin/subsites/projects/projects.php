@@ -11,8 +11,8 @@
   <aside class="sidebar">
       <h1>Admin Dashboard</h1>
       <ul>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="./subsites/projects/projects.php">Projects</a></li>
+        <li><a href="../../admin.php">Dashboard</a></li>
+        <li><a href="projects.php">Projects</a></li>
         <li><a href="#">Products</a></li>
         <li><a href="#">Settings</a></li>
         <li><a href="../../../logout/logout.php">Logout</a></li>
