@@ -4,6 +4,7 @@
     <link href="styles.css" rel="stylesheet" type="text/css">
     <title>Nathan Portfolio</title>
     <script src="script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
     <div class="login-button">
@@ -76,6 +77,10 @@
     $result = $dbh->query($sql);
     $count = 0;
     foreach ($result as $row) {
+        if($row["deleted"] == 1) {
+            return;
+        }
+
         $count++;
         if($count == 1) {
             echo "<arrow-up><a href='#skills'><i class='fa-sharp fa-solid fa-arrow-up fa-2xl' style='color: #6d63f7'></i></arrow-up></a>'";

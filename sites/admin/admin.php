@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="admin.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Admin Panel</title>
 </head>
 <body>
@@ -15,7 +16,7 @@
         <li><a href="./subsites/projects/projects.php">Projects</a></li>
         <li><a href="#">Products</a></li>
         <li><a href="#">Settings</a></li>
-        <li><a href="../../../logout/logout.php">Logout</a></li>
+        <li><a href=".././logout/logout.php">Logout</a></li>
       </ul>
     </aside>
     <main class="main-content">

@@ -4,6 +4,7 @@
     <link href="login.css" rel="stylesheet" type="text/css">
     <title>Login - Nathan Portfolio</title>
     <script src="login.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
     <div class="text-box">
@@ -65,7 +66,7 @@ echo "Please enter a username and password";
         header("location: ../admin/admin.php");
         print_r("Login succesful");
     } else {
-        print_r("Invalid username or password");
+        echo "<script>alert('Incorrect username or password')</script>";
     }
 }   
 }

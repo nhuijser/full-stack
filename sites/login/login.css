@@ -42,7 +42,10 @@ body {
     font-size: 1.5rem;
     cursor: pointer;
     transition: 0.5s;
-    margin-left: 3vh;
+    /* margin-left: 3vh; */
+    margin-left: auto;
+    margin-right: auto;
+    /* text-align: center; */
 }
 
 .login-form button:hover {

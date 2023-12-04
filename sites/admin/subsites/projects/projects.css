@@ -86,8 +86,7 @@ p {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1vh;
-    width: 100%;
+    margin-bottom: 1vh; 
     transition: 0.5s;
 }
 
@@ -111,7 +110,6 @@ p {
     justify-content: space-between;
     flex-direction: row;;
     transition: 0.5s;
-
 }
 
 .buttons {
@@ -120,8 +118,28 @@ p {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
-    padding-right: 1rem;
+    padding-right: 2.5vw;
 }
+
+ .content-deleted {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1vh; 
+    transition: 0.5s;
+    opacity: 0.5;
+ }
+    .project-container-deleted {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;;
+        transition: 0.5s;
+    }
+
 
 @keyframes opacity {
     from { opacity: 0; }
