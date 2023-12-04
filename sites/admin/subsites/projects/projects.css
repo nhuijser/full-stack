@@ -150,6 +150,31 @@ p {
     box-shadow: 0 0 0 0.2rem #6d63f74f;
 }
 
+.submitButton {
+    border: none;
+    border-radius: 1vh;
+    width: 3rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+
+.btn {
+    border: none;
+    border-radius: 1vh;
+    width: 3rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.btn:hover {
+    transition: 0.5s;
+    transform: scale(1.02);
+    box-shadow: 0 0 0 0.2rem #6d63f74f;
+}
+
 .project-container {
     display: flex;
     justify-content: space-between;
