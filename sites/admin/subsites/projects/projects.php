@@ -1,3 +1,13 @@
+<?php 
+
+session_start();
+
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+  header("location: ../../../login/login.php");
+  exit;
+}
+?>
+  
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -13,8 +23,7 @@
         <ul>
           <li><a href="../../admin.php">Dashboard</a></li>
           <li><a href="projects.php">Projects</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">Settings</a></li>
+          <li><a href="../skills/skills.php">Skills</a></li>
           <li><a href="../../../logout/logout.php">Logout</a></li>
         </ul>
       </aside>
@@ -93,7 +102,7 @@
   if(createButton) {
     createButton.addEventListener('click', () => {
       console.log("Create button clicked");
-      fetch('endpoints/create_project.php', {
+      fetch('../../endpoints/create_project.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -116,7 +125,7 @@
     const projectId = deleteButton.dataset.id;
     deleteButton.addEventListener('click', () => {
       console.log("Delete button clicked");
-      fetch('endpoints/delete_project.php', {
+      fetch('../../endpoints/delete_project.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -140,7 +149,7 @@
     const projectId = showButton.dataset.id;
     showButton.addEventListener('click', () => {
       console.log("Show button clicked");
-      fetch('endpoints/show_project.php', {
+      fetch('../../endpoints/show_project.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -187,7 +196,7 @@
 
       submitButton.addEventListener('click', () => {
         console.log("Submit button clicked");
-        fetch('endpoints/edit_project.php', {
+        fetch('../../endpoints/edit_project.php', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -211,6 +220,23 @@
         projectDescription.contentEditable = false;
         projectDescription.parentNode.removeChild(submitButton);
         projectDescription.parentNode.removeChild(cancelButton);
+
+        // reset the project title and description
+
+        fetch('../../endpoints/get_project.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: 'id=' + editButton.dataset.id,
+        })
+        .then(response => response.text())
+        .then(data => {
+          console.log(data);
+          const project = JSON.parse(data);
+          projectTitle.innerText = project.project;
+          projectDescription.innerText = project.description;
+        })
       });
     });
   });
@@ -223,3 +249,4 @@
 
   <!-- import assets pic -->
   <script src="https://kit.fontawesome.com/0f6a8fd9b7.js" crossorigin="anonymous"></script>
+
