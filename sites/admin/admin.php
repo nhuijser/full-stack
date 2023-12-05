@@ -14,7 +14,7 @@
       <h1>Admin Dashboard</h1>
       <ul>
         <li><a href="#">Dashboard</a></li>
-        <li><a href="./subsites/projects/projects.php">Projects</a></li>
+        <li><a href="./subsites/projects.php">Projects</a></li>
         <li><a href="#">Products</a></li>
         <li><a href="#">Settings</a></li>
         <li><a href="../logout/logout.php">Logout</a></li>
@@ -31,7 +31,7 @@
   const ctx = document.getElementById('myChart');
 
   const getData = async () => {
-    const response = await fetch('./subsites/projects/endpoints/get_chartdata.php');
+    const response = await fetch('./subsites/endpoints/get_chartdata.php');
     const data = await response.json();
     return data;
   }
