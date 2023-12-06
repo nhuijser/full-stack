@@ -24,6 +24,8 @@ body::-webkit-scrollbar-track {
     background: rgba(0, 128, 0, 0);
 }
 
+
+
 body::-webkit-scrollbar-thumb {
     background-color: grey;
     border-radius: 6px;
@@ -300,4 +302,53 @@ github-button:hover {
 
 img {
     height: 400px;
+}
+
+@media only screen and (max-width: 768px) {
+    /* Add your mobile styles here */
+    body {
+        margin-left: 2.5vw;
+        margin-right: 2.5vw;
+    }
+
+    header-section {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    header-img {
+        margin-right: 0;
+    }
+
+    .btn {
+        margin-left: 0;
+    }
+
+    skills-section {
+        flex-direction: column;
+    }
+
+    front-end,
+    back-end {
+        width: 100%;
+    }
+
+    .front-end-header,
+    .back-end-header {
+        margin-bottom: 1.5vh;
+    }
+
+    .front-end-languages,
+    .back-end-languages {
+        margin-bottom: 5vh;
+    }
+
+    project-desc-section {
+        max-width: none;
+    }
+
+/*  hide img */
+img {
+    display: none;
+}
 }

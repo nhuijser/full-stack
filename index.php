@@ -4,9 +4,15 @@
     <link href="styles.css" rel="stylesheet" type="text/css">
     <title>Nathan Portfolio</title>
     <script src="script.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
+<div class="mobile-menu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+</div>
+
     <div class="login-button">
         <a href="sites/login/login.php">Login</a>
     </div>    

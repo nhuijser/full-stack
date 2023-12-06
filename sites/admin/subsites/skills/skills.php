@@ -21,6 +21,12 @@
         <header>
           <h2>Skills</h2>
         </header>
+        <div class="front-end">
+          <header>
+            <h3>Front-End</h3>
+          </header>
+          
+        </div>
       </main>
     </div>
   </body>
