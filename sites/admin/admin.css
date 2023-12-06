@@ -93,3 +93,40 @@ header h2 {
     color: white;
     font-size: 3em;
 }
+
+/* mobile support */
+
+@media (max-width: 768px) {
+    .admin-panel {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+    .content {
+        max-width: 80%;
+        padding-left: 3vw;
+    }
+
+    .content header {
+        font-size: 2em;
+    }
+
+    .content p {
+        font-size: 1em;
+    }
+
+    .content .user-info {
+        flex-direction: column;
+    }
+
+    
+}
