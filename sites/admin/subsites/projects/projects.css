@@ -215,3 +215,47 @@ p {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+
+/* mobile */
+
+@media (max-width: 768px) {
+    .admin-panel {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+    .content {
+        flex-direction: column;
+        max-width: 80%;
+    }
+
+    .content-deleted {
+        flex-direction: column;
+        max-width: 80%;
+    }
+
+    .buttons {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        padding-right: 2.5vw;
+    }
+
+    .createButton {
+        justify-content: flex-end;
+        margin-right: 10vw;
+        padding: 2.5px;
+    }
+
+
+}
