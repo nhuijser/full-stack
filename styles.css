@@ -306,22 +306,31 @@ img {
 
 @media only screen and (max-width: 768px) {
     /* Add your mobile styles here */
+
     body {
         margin-left: 2.5vw;
         margin-right: 2.5vw;
     }
 
     header-section {
-        margin-left: 0;
         width: 100%;
     }
 
-    header-img {
-        margin-right: 0;
+    .section-header {
+        margin-left: 0;
+        margin-right: 15vw;
+        text-align: center;
+    }
+
+    .section-desc {
+        margin-left: 0;
+        margin-right: 15vw;
+        text-align: center;
     }
 
     .btn {
-        margin-left: 0;
+        margin-left: 7.5vw;   
+        margin-top: 2.5vh; 
     }
 
     skills-section {
@@ -330,17 +339,43 @@ img {
 
     front-end,
     back-end {
-        width: 100%;
+       min-width: 100%;
+       max-height: 100vh;
+       margin-left: 0;
+       padding-left: 2.5vw;
+       padding-right: 2.5vw;
     }
 
     .front-end-header,
     .back-end-header {
         margin-bottom: 1.5vh;
+        font-size: 3rem;
     }
 
     .front-end-languages,
     .back-end-languages {
+        max-width: 65%;
         margin-bottom: 5vh;
+    }
+
+    front-end-desc-section, back-end-desc-section {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding-top: 2.5vh;
+    }
+    .language {
+        margin-top: 2.5vh;
+    }
+
+    front-end {
+        height: 500vh;
+        width: 100%;
+    }
+
+    back-end {
+        height: 500vh;
+        width: 100%;
     }
 
     project-desc-section {
@@ -348,7 +383,8 @@ img {
     }
 
 /*  hide img */
-img {
-    display: none;
+    img {
+        display: none;
+    }
 }
-}
+
