@@ -1,6 +1,3 @@
-# full-stack;
+# portfolio
 
-full-stack project for my school project
-
-to-do: 
-- change login screen to same as index ✅
+full-stack portfolio for my school project
